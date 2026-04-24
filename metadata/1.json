@@ -1,0 +1,10 @@
+{
+  "name": "PoorGPT #1",
+  "description": "From nothing to genius. A journey powered by AI and grit.",
+  "image": "https://raw.githubusercontent.com/YOUR_USERNAME/poor-gpt-nft/main/images/1.png",
+  "attributes": [
+    { "trait_type": "Background", "value": "Slum Alley" },
+    { "trait_type": "Outfit", "value": "Torn Hoodie" },
+    { "trait_type": "Eyes", "value": "Normal" }
+  ]
+}
