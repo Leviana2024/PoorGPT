@@ -1,0 +1,10 @@
+{
+  "name": "PoorGPT #2",
+  "description": "Learning never stops. Evolution begins.",
+  "image": "https://raw.githubusercontent.com/YOUR_USERNAME/poor-gpt-nft/main/images/2.png",
+  "attributes": [
+    { "trait_type": "Background", "value": "Cyber City" },
+    { "trait_type": "Outfit", "value": "Hacker Jacket" },
+    { "trait_type": "Eyes", "value": "Glowing Blue" }
+  ]
+}
