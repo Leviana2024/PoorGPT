@@ -1,0 +1,10 @@
+{
+  "name": "PoorGPT #3",
+  "description": "The rise of intelligence and power.",
+  "image": "https://raw.githubusercontent.com/YOUR_USERNAME/poor-gpt-nft/main/images/3.png",
+  "attributes": [
+    { "trait_type": "Background", "value": "Rooftop Skyline" },
+    { "trait_type": "Outfit", "value": "Business Suit" },
+    { "trait_type": "Eyes", "value": "Digital Code" }
+  ]
+}
