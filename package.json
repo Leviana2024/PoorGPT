@@ -1,0 +1,16 @@
+{
+  "name": "poor-gpt-nft",
+  "version": "1.0.0",
+  "description": "PoorGPT NFT Collection - From nothing to genius",
+  "scripts": {
+    "generate": "node generate.js",
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": ["nft", "poorgpt", "ai"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
