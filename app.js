@@ -1,4 +1,4 @@
-const contractAddress = "PASTE_YOUR_CONTRACT_ADDRESS";
+const contractAddress = "0xF9984f167377Db574aba500E8aD30CD20593c6CD";
 
 const abi = [
   "function mint() public payable",
