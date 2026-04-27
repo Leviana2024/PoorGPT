@@ -52,3 +52,26 @@ async function loadSupply() {
   const supply = await contract.totalSupply();
   document.getElementById("supply").innerText = "Minted: " + supply;
 }
+async function loadNFTs() {
+  const gallery = document.getElementById("gallery");
+
+  for (let i = 1; i <= 5; i++) {
+    try {
+      const res = await fetch(`metadata/${i}.json`);
+      const data = await res.json();
+
+      const img = document.createElement("img");
+      img.src = data.image;
+      img.style.width = "200px";
+      img.style.margin = "10px";
+
+      gallery.appendChild(img);
+    } catch (err) {
+      console.log("Missing NFT", i);
+    }
+  }
+}
+
+window.onload = () => {
+  loadNFTs();
+};
