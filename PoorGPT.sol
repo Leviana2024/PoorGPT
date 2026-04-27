@@ -1,22 +1,39 @@
+import "@openzeppelin/contracts/utils/Strings.sol";
 // SPDX-License-Identifier: MIT
-// Compatible with OpenZeppelin Contracts ^5.6.0
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.20;
 
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import {ERC20Permit} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Permit.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract PoorGPT is ERC20, Ownable, ERC20Permit {
-    constructor(address recipient, address initialOwner)
-        ERC20("PoorGPT", "PGPT")
-        Ownable(initialOwner)
-        ERC20Permit("PoorGPT")
-    {
-        _mint(recipient, 1000 * 10 ** decimals());
+contract PoorGPT is ERC721URIStorage, Ownable {
+
+    uint256 public totalSupply;
+    uint256 public maxSupply = 1000;
+    uint256 public mintPrice = 0.01 ether;
+
+    constructor() ERC721("PoorGPT", "PGPT") {}
+
+    function mint() public payable {
+        require(totalSupply < maxSupply, "Sold out");
+        require(msg.value >= mintPrice, "Not enough ETH");
+
+        totalSupply++;
+
+        _safeMint(msg.sender, totalSupply);
+
+        // metadata link (CHANGE THIS)
+        string memory uri = string(
+            abi.encodePacked(
+                "https://yourdomain.com/metadata/",
+                Strings.toString(totalSupply),
+                ".json"
+            )
+        );
+
+        _setTokenURI(totalSupply, uri);
     }
 
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
+    function withdraw() public onlyOwner {
+        payable(owner()).transfer(address(this).balance);
     }
 }
-
